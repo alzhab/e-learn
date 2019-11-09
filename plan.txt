@@ -60,6 +60,12 @@
 
       main.module
 
+    adminPanel
+      GroupsList
+      StudentsList
+      TeachersList
+      CoursesList
+
     core
       interfaces
       services
