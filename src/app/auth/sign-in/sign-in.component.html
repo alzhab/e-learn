@@ -1,1 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email">
 
+    <mat-error *ngIf="form.get('email').touched && form.get('email').invalid">
+      <span *ngIf="form.get('email').errors.required">
+        Email is <strong>required</strong>
+      </span>
+
+      <span *ngIf="form.get('email').errors.email">
+        Please enter a valid email address
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Password" formControlName="password">
+
+    <mat-error *ngIf="form.get('password').touched && form.get('password').invalid">
+      <span *ngIf="form.get('password').errors.required">
+        password is <strong>required</strong>
+      </span>
+
+      <span *ngIf="form.get('password').errors.minlength">
+        Пароль должен быть не менее
+        {{ form.get('password').errors.minlength.requiredLength }}
+        символов. Сейчас он
+        {{ form.get('password').errors.minlength.actualLength }}
+        символов
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <input matInput placeholder="Favorite food">
+  </mat-form-field> -->
+  <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Click</button>
+</form>

@@ -6,14 +6,61 @@
       </div>
       <div class="card__content">
         <nav mat-tab-nav-bar>
-          <a 
-            mat-tab-link 
-            *ngFor="let link of navLinks" 
-            [routerLink]="link.path" routerLinkActive
-            #rla="routerLinkActive" [active]="rla.isActive">
+          <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="['sign-in']" [queryParams]="{role: link.role}"
+            routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
             {{link.label}}
           </a>
         </nav>
+
+        <div class="card__text" [ngSwitch]="cardText">
+          <!-- 
+            Да я знаю что это выглядит страшно и не правильно, но typingAnimation не работает с рекативностью
+            Найдешь способ, напиши 
+          -->
+          <ng-template [ngSwitchCase]="'teacher'">
+            <h2>
+              <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
+                {{cardTextOptions.teacher.h2}},
+              </span>
+            </h2>
+            <p>
+              <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
+                {{cardTextOptions.teacher.p}}
+              </span>
+            </p>
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'student'">
+            <h2>
+              <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
+                {{cardTextOptions.student.h2}},
+              </span>
+            </h2>
+            <p>
+              <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
+                {{cardTextOptions.student.p}}
+              </span>
+            </p>
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'default'">
+            <h2>
+              <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
+                {{cardTextOptions.default.h2}},
+              </span>
+            </h2>
+            <p>
+              <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
+                {{cardTextOptions.default.p}}
+              </span>
+            </p>
+          </ng-template>
+        </div>
+
+        <div class="card__outlet">
+          <router-outlet></router-outlet>
+        </div>
+
       </div>
     </div>
   </div>

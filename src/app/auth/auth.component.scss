@@ -2,69 +2,139 @@
   min-height: 100vh;
   height: 100vh;
   overflow: hidden;
+  overflow-y: auto;
+  background: rgb(35, 224, 224);
 
   &__container {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: rgb(35, 224, 224);
+    padding: 60px 0;
+    box-sizing: border-box;
   }
 
   .card {
     display: flex;
-
+    overflow: hidden;
+    margin: 0 auto;
     background: #fff;
     border-radius: 10px;
     box-shadow: 6px 7px 13px #00000036;
 
     // mobile-settings
     width: 90%;
-    height: 60vh;
     flex-direction: column;
+    min-height: 70vh;
 
     &__img {
       width: 50%;
+      display: flex;
       align-items: center;
       justify-content: center;
       border-right: 1px solid #e3e6ed;
 
       img {
-        display: block;
+        display: inline-block;
         width: 70%;
       }
 
       // mobile-settings
-      display: none;
+      width: 100%;
     }
 
     &__content {
       background: #f3fbff;
       box-sizing: border-box;
-      padding: 50px;
 
       display: flex;
       flex-direction: column;
       align-items: center;
 
       // mobile-settings
+      padding: 30px;
+      width: 100%;
+    }
+
+    &__text {
+      width: 100%;
+      // mobile settings 
+      margin-top: 30px;
+      margin-bottom: 25px;
+
+      h2 {
+        margin: 0;
+        font-weight: 300;
+        margin-bottom: 20px;
+
+        // mobile-settings
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin: 0;
+        font-weight: 300;
+
+        // mobile-settings
+        font-size: 0.8rem;
+        line-height: 1
+      }
+
+    }
+
+    &__outlet {
       width: 100%;
     }
   }
 
-  @media screen and (min-width: '321px') {
+  @media screen and (min-width: '426px') {
+    .card {
+      &__img {
+        img {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: '1025px') {
     .card {
       flex-direction: row;
       width: 60%;
-      height: 60vh;
 
       &__img {
-        display: flex;
+        width: 50%;
 
+        img {
+          width: 70%;
+        }
       }
 
       &__content {
         width: 50%;
+      }
+
+      &__content {
+        padding: 60px
+      }
+
+      &__text {
+        margin-top: 60px;
+        margin-bottom: 50px;
+        width: 100%;
+
+        h2 {
+          margin: 0;
+          font-size: 3rem;
+          font-weight: 300;
+          margin-bottom: 20px;
+        }
+
+        p {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 300;
+          line-height: 1.5;
+        }
       }
     }
   }
