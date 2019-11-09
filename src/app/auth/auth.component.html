@@ -1,4 +1,13 @@
 <section class="auth">
+  <div class="auth__back">
+    <div class="auth__cube"></div>
+    <div class="auth__cube"></div>
+    <div class="auth__cube"></div>
+    <div class="auth__cube"></div>
+    <div class="auth__cube"></div>
+    <div class="auth__cube"></div>
+  </div>
+
   <div class="auth__container">
     <div class="card">
       <div class="card__img">
@@ -55,11 +64,25 @@
               </span>
             </p>
           </ng-template>
+
+          <ng-template [ngSwitchCase]="'forgotPassword'">
+            <h2>
+              <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
+                {{cardTextOptions.forgotPassword.h2}},
+              </span>
+            </h2>
+            <p>
+              <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
+                {{cardTextOptions.forgotPassword.p}}
+              </span>
+            </p>
+          </ng-template>
         </div>
 
         <div class="card__outlet" *ngIf="cardText != 'default'">
           <router-outlet></router-outlet>
         </div>
+
 
       </div>
     </div>

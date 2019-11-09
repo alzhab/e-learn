@@ -33,6 +33,10 @@ export class AuthComponent implements OnInit {
     teacher: {
       h2: 'Hello Teacher',
       p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
+    },
+    forgotPassword: {
+      h2: 'Forgot password ?',
+      p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
     }
   }
 
@@ -40,14 +44,18 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParamMap.subscribe((data: Params) => {
-      this.role = data.params.role
 
-      if (this.role == 'student') {
-        this.cardText = 'student'
-      } else if (this.role == 'teacher') {
-        this.cardText = 'teacher'
-      } else if (!this.role) {
-        this.cardText = 'default'
+      if (data.params.role) {
+        this.role = data.params.role
+        if (this.role == 'student') {
+          this.cardText = 'student'
+        } else if (this.role == 'teacher') {
+          this.cardText = 'teacher'
+        } else if (!this.role) {
+          this.cardText = 'default'
+        }
+      } else {
+        this.cardText = 'forgotPassword'
       }
     })
   }
