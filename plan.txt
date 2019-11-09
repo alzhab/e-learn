@@ -1,0 +1,126 @@
+Описание проекта
+Сайт типа e-learn
+
+Роли
+  Ученик
+    Список курсов
+    Планнер
+    Чат с преподами
+    Форум
+  Преподаватель
+    Планнер
+    Чат
+    Форум
+    Список групп и учеников 
+    Создавать обьявления 
+  Администрация
+    Создавать форумы
+    Создавать обьявления
+    Создавать преподавателя 
+    Создавать ученика
+    Создавать курсы
+    Создавать группы
+
+Страницы  
+  Авторизация
+    Войти
+    Регистрация
+    Забыл пароль
+  Главная
+    Dashboard
+    Calendar
+    Announcement
+    Courses
+    Messages
+    Forum
+
+Архитектрура
+  app
+    auth
+      components
+      pages
+      auth.module
+
+    main
+      components
+        Calendar-Mini
+        Announcement-Mini
+        Courses-Mini
+        Messages-Mini
+        DayPlanner
+
+      pages
+        Dashboard
+        Calendar
+        Announcement
+        Courses
+        Messages
+        Forum
+        Settings
+
+      main.module
+
+    core
+      interfaces
+      services
+      components
+      pipes
+      decorators
+      core.module
+    material
+      material.module.ts
+    app.module
+
+Backend
+  Group
+    name: string
+    courses: Course[]
+    students: Student[]
+    teachers: Teacher[]
+    marks: Mark[]
+
+  Student
+    name: string
+    surname: string
+    email: string
+    password: string
+    telephone: string
+
+  Teacher
+    name: string
+    surname: string
+    email: string
+    password: string
+    telephone: string
+
+  Administration
+    name: string
+    surname: string
+    password: string
+
+  Course
+    name: string
+    description: string
+
+  Mark
+    teacher: Teaher
+    student: Student
+
+  Announcement
+    author: Teacher | Administration
+    title: string
+    message: string
+    view: number
+  
+Примеры 
+  Ученик заходит на страницу
+    запрос на все курсы в которых он учавстует
+      Get group with student
+        get courses
+
+    запрос на сообщения которые были отправлены ему
+
+TODO
+  //TODO Сделать страницу с авторизацией
+  //TODO Сделать backend с ролями
+  //TODO Сделать announcement page
