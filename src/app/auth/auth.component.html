@@ -1,2 +1,20 @@
-<p>auth works!</p>
-<router-outlet></router-outlet>
+<section class="auth">
+  <div class="auth__container">
+    <div class="card">
+      <div class="card__img">
+        <img src="../../assets/auth-icon.jpg" alt="">
+      </div>
+      <div class="card__content">
+        <nav mat-tab-nav-bar>
+          <a 
+            mat-tab-link 
+            *ngFor="let link of navLinks" 
+            [routerLink]="link.path" routerLinkActive
+            #rla="routerLinkActive" [active]="rla.isActive">
+            {{link.label}}
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

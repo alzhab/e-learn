@@ -1,0 +1,71 @@
+.auth {
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(35, 224, 224);
+  }
+
+  .card {
+    display: flex;
+
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 6px 7px 13px #00000036;
+
+    // mobile-settings
+    width: 90%;
+    height: 60vh;
+    flex-direction: column;
+
+    &__img {
+      width: 50%;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #e3e6ed;
+
+      img {
+        display: block;
+        width: 70%;
+      }
+
+      // mobile-settings
+      display: none;
+    }
+
+    &__content {
+      background: #f3fbff;
+      box-sizing: border-box;
+      padding: 50px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      // mobile-settings
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: '321px') {
+    .card {
+      flex-direction: row;
+      width: 60%;
+      height: 60vh;
+
+      &__img {
+        display: flex;
+
+      }
+
+      &__content {
+        width: 50%;
+      }
+    }
+  }
+}

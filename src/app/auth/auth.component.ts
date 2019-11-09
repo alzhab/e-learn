@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
+  public navLinks = [
+    {
+      path: 'sign-in',
+      label: 'Sign In'
+    },
+    {
+      path: 'forgot-password',
+      label: 'Password'
+    }
+  ]
 
   constructor() { }
 
