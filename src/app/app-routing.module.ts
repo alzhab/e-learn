@@ -5,6 +5,12 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: './auth/auth.module#AuthModule'
+  },
+
+  // Временно перемещает все в auth
+  {
+    path: '**',
+    redirectTo: 'auth'
   }
 ];
 
