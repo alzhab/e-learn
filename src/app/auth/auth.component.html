@@ -57,7 +57,7 @@
           </ng-template>
         </div>
 
-        <div class="card__outlet">
+        <div class="card__outlet" *ngIf="cardText != 'default'">
           <router-outlet></router-outlet>
         </div>
 
