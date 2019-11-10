@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,57 +8,18 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-  public navLinks = [
-    {
-      role: 'student',
-      label: 'Student'
-    },
-    {
-      role: 'teacher',
-      label: 'Teacher'
-    }
-  ]
-
-  public role: string
-
+  public activeRole: string
   public cardText
-  public cardTextOptions = {
-    default: {
-      h2: 'Choose role',
-      p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
-    },
-    student: {
-      h2: 'Hello Student',
-      p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
-    },
-    teacher: {
-      h2: 'Hello Teacher',
-      p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
-    },
-    forgotPassword: {
-      h2: 'Forgot password ?',
-      p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
-    }
-  }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe((data: Params) => {
+    this.changeRole('student')
+  }
 
-      if (data.params.role) {
-        this.role = data.params.role
-        if (this.role == 'student') {
-          this.cardText = 'student'
-        } else if (this.role == 'teacher') {
-          this.cardText = 'teacher'
-        } else if (!this.role) {
-          this.cardText = 'default'
-        }
-      } else {
-        this.cardText = 'forgotPassword'
-      }
-    })
+  changeRole(role: string) {
+    this.activeRole = role
+    this.cardText = this.authService.getcardTextOption(role)
   }
 
 }

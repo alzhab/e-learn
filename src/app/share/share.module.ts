@@ -4,21 +4,22 @@ import { MaterialModule } from '../material/material.module';
 import { TypingAnimationDirective } from 'angular-typing-animation'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [TypingAnimationDirective],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   exports: [
     CommonModule,
     MaterialModule,
     TypingAnimationDirective,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class ShareModule { }

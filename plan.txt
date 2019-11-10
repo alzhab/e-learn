@@ -127,6 +127,7 @@ Backend
     запрос на сообщения которые были отправлены ему
 
 TODO
-  //TODO Сделать страницу с авторизацией
-  //TODO Сделать backend с ролями
+  //TODO Сделать асинхронный валидатор на email
+  //TODO Сделать backend с ролями для входа
+  //TODO Сделать guard на auth
   //TODO Сделать announcement page

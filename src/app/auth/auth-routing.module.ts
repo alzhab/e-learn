@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/auth/sign-in?role=student'
+        redirectTo: '/auth/sign-in'
       },
       {
         path: 'sign-in',

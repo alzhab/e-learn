@@ -14,14 +14,19 @@
         <img src="../../assets/auth-icon.jpg" alt="">
       </div>
       <div class="card__content">
-        <nav mat-tab-nav-bar>
-          <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="['sign-in']" [queryParams]="{role: link.role}"
-            routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
-            {{link.label}}
+        <nav mat-tab-nav-bar class="card__navbar">
+          <a mat-tab-link (click)="changeRole('student')" [active]="activeRole == 'student'">
+            Student
+          </a>
+          <a mat-tab-link (click)="changeRole('teacher')" [active]="activeRole == 'teacher'">
+            Teacher
+          </a>
+          <a mat-tab-link (click)="changeRole('admin')" [active]="activeRole == 'admin'">
+            Admin
           </a>
         </nav>
 
-        <div class="card__text" [ngSwitch]="cardText">
+        <div class="card__text" [ngSwitch]="activeRole">
           <!-- 
             Да я знаю что это выглядит страшно и не правильно, но typingAnimation не работает с рекативностью
             Найдешь способ, напиши 
@@ -29,12 +34,12 @@
           <ng-template [ngSwitchCase]="'teacher'">
             <h2>
               <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
-                {{cardTextOptions.teacher.h2}},
+                {{cardText.h2}},
               </span>
             </h2>
             <p>
               <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
-                {{cardTextOptions.teacher.p}}
+                {{cardText.p}}
               </span>
             </p>
           </ng-template>
@@ -42,12 +47,25 @@
           <ng-template [ngSwitchCase]="'student'">
             <h2>
               <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
-                {{cardTextOptions.student.h2}},
+                {{cardText.h2}},
               </span>
             </h2>
             <p>
               <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
-                {{cardTextOptions.student.p}}
+                {{cardText.p}}
+              </span>
+            </p>
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'admin'">
+            <h2>
+              <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
+                {{cardText.h2}},
+              </span>
+            </h2>
+            <p>
+              <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
+                {{cardText.p}}
               </span>
             </p>
           </ng-template>
@@ -55,12 +73,12 @@
           <ng-template [ngSwitchCase]="'default'">
             <h2>
               <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
-                {{cardTextOptions.default.h2}},
+                {{cardText.h2}},
               </span>
             </h2>
             <p>
               <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
-                {{cardTextOptions.default.p}}
+                {{cardText.p}}
               </span>
             </p>
           </ng-template>
@@ -68,12 +86,12 @@
           <ng-template [ngSwitchCase]="'forgotPassword'">
             <h2>
               <span typingAnimation [typeSpeed]="50" [startDelay]="1000" hideCursorOnComplete="false">
-                {{cardTextOptions.forgotPassword.h2}},
+                {{cardText.h2}},
               </span>
             </h2>
             <p>
               <span typingAnimation [typeSpeed]="20" [startDelay]="2000" hideCursorOnComplete="false">
-                {{cardTextOptions.forgotPassword.p}}
+                {{cardText.p}}
               </span>
             </p>
           </ng-template>
