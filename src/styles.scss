@@ -1,6 +1,7 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html,
+$primary: mat-palette('red') html;
+
 body {
   height: 100%;
 }

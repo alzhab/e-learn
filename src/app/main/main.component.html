@@ -1,0 +1,44 @@
+<mat-drawer-container class="main-container">
+  <mat-drawer mode="side" [(opened)]="sideNavOpen" class="main-container__aside">
+    <div class="main-container__user user">
+      <img src="../../assets/avatar.png" alt="">
+
+      <h3>Alex Shaw</h3>
+
+      <p>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">room</mat-icon>
+        Ho Chi Minh City, Vietnam
+      </p>
+
+      <span>Student</span>
+    </div>
+
+    <mat-list class="main-container__list">
+      <mat-list-item class="main-container__link " *ngFor="let link of navLinks" [routerLink]="['', link.path]"
+        routerLinkActive="main-container__link--active" (click)="sideNavToggle()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">{{link.icon}}</mat-icon>
+        <span>{{link.label}}</span>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="main-container__footer">
+      <mat-icon>power_settings_new</mat-icon>
+      <mat-icon>power_settings_new</mat-icon>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar class="main-container__toolbar">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="sideNavToggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Dashboard</h1>
+        <span class="menu-spacer"></span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="main-container__content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
