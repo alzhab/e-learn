@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { AuthService } from './auth.service';
+import { AuthService, Role } from './share/services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -17,8 +16,9 @@ export class AuthComponent implements OnInit {
     this.changeRole('student')
   }
 
-  changeRole(role: string) {
+  changeRole(role: Role) {
     this.activeRole = role
+    this.authService.setActiveRole(role)
     this.cardText = this.authService.getcardTextOption(role)
   }
 

@@ -9,6 +9,7 @@ import { compareValidator } from '../../share/compare-validator';
 })
 export class ForgotPasswordPageComponent implements OnInit {
   public form: FormGroup
+  public emailValid = false
 
   constructor() { }
 

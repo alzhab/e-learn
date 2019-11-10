@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+export type Role = 'student' | 'teacher' | 'admin'
+
+@Injectable()
 export class AuthService {
+  private activeRole: Role = 'student'
+
   private cardTextOptions = {
     default: {
       h2: 'Choose role',
@@ -22,10 +25,18 @@ export class AuthService {
       p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
     }
   }
+  constructor(private http: HttpClient) { }
 
   getcardTextOption(role: string) {
     return { ...this.cardTextOptions[role] }
   }
 
-  constructor() { }
+  getActiveRole() {
+    return this.activeRole
+  }
+
+  setActiveRole(role: Role) {
+    this.activeRole = role
+  }
+
 }

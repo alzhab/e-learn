@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { TypingAnimationDirective } from 'angular-typing-animation'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [TypingAnimationDirective],
@@ -11,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    HttpClientModule
   ],
   exports: [
     CommonModule,
@@ -19,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TypingAnimationDirective,
     FormsModule,
     ReactiveFormsModule,
-    
+    HttpClientModule
   ]
 })
 export class ShareModule { }
