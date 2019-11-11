@@ -1,0 +1,44 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+
+  // Начинается веселье
+  display: grid;
+  grid-template-columns: 100%;
+
+  &__card {
+    min-height: 39vh;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 0 4px rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+    margin-bottom: 35px;
+
+    &--long {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media screen and (max-height: 760px) {
+    &__card {
+      min-height: 265px;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+
+    &__card {
+      margin: 0 12.5px;
+      margin-bottom: 35px;
+
+
+      &--long {
+        grid-column: 1 / 3;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1288px) {
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+}

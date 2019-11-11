@@ -97,6 +97,10 @@
   &__content {
     box-sizing: border-box;
     padding: 40px 30px;
+    box-sizing: border-box;
+    max-height: calc(100% - 60px);
+    height: calc(100% - 60px);
+    overflow-y: scroll;
   }
 
   @media screen and (min-width: 426px) {
@@ -181,6 +185,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    margin-bottom: 20px;
   }
 
   &__li {
