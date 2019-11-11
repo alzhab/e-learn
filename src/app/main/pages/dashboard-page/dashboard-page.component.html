@@ -1,6 +1,32 @@
 <div class="dashboard">
-  <div class="dashboard__card dashboard__card--long">
-    1
+  <div class="dashboard__card dashboard__card--long announcement">
+    <div class="announcement__header">
+      <div class="announcement__heading">
+        <h3>Announcemnent</h3>
+        <p>From your Principal or Teachers</p>
+      </div>
+
+      <div class="announcement__filter">
+        <p>Principal</p>
+        <p>Teacher</p>
+      </div>
+    </div>
+
+    <div class="announcement__list">
+      <div class="announcement__item announcement-item" *ngFor="let ann of list">
+        <div class="announcement-item__view">
+          <span>{{ann.view}}</span>
+          <mat-icon>remove_red_eye</mat-icon>
+        </div>
+
+        <div class="announcement-item__text">
+          <h4>{{ann.title}}</h4>
+          <p>
+            {{ann.text}}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="dashboard__card ">
