@@ -1,19 +1,19 @@
 <div class="dashboard">
-  <div class="dashboard__card dashboard__card--long announcement">
-    <div class="announcement__header">
-      <div class="announcement__heading">
+  <div class="dashboard__card dashboard__card--long card">
+    <div class="card__header">
+      <div class="card__heading">
         <h3>Announcemnent</h3>
         <p>From your Principal or Teachers</p>
       </div>
 
-      <div class="announcement__filter">
+      <div class="card__filter">
         <p>Principal</p>
         <p>Teacher</p>
       </div>
     </div>
 
-    <div class="announcement__list">
-      <div class="announcement__item announcement-item" *ngFor="let ann of list">
+    <div class="card__list">
+      <div class="card__item announcement-item" *ngFor="let ann of list">
         <div class="announcement-item__view">
           <span>{{ann.view}}</span>
           <mat-icon>remove_red_eye</mat-icon>
@@ -29,19 +29,85 @@
     </div>
   </div>
 
-  <div class="dashboard__card ">
-    2
+  <div class="dashboard__card card">
+
+  </div>
+
+  <div class="dashboard__card card card--primary">
+    <div class="card__header">
+      <div class="card__button">+</div>
+
+      <div class="card__heading">
+        <h3>Messages</h3>
+        <p>Current Conversations</p>
+      </div>
+    </div>
+
+    <div class="card__list">
+      <div class="message-item message-item--active">
+        <div class="message-item__avatar">
+          <img src="../../../../assets/avatar.png" alt="">
+        </div>
+
+        <div class="message-item__text">
+          <h3>Jason Bourne</h3>
+          <p>Hey dude ! What’s the plan ?</p>
+          <span>2 hours ago</span>
+        </div>
+      </div>
+
+      <div class="message-item">
+        <div class="message-item__avatar">
+          <img src="../../../../assets/avatar.png" alt="">
+        </div>
+
+        <div class="message-item__text">
+          <h3>Jason Bourne</h3>
+          <p>Hey dude ! What’s the plan ?</p>
+          <span>2 hours ago</span>
+        </div>
+      </div>
+
+      <div class="message-item">
+        <div class="message-item__avatar">
+          <img src="../../../../assets/avatar.png" alt="">
+        </div>
+
+        <div class="message-item__text">
+          <h3>Jason Bourne</h3>
+          <p>Hey dude ! What’s the plan ?</p>
+          <span>2 hours ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard__card card card--primary">
+    <div class="card__header">
+      <div class="card__button">+</div>
+
+      <div class="card__heading">
+        <h3>Courses</h3>
+        <p>Your Current Courses And Process</p>
+      </div>
+    </div>
+
+    <div class="card__list">
+      <div class="course-item">
+        <div class="course-item__plan course-item__plan--full">
+          <span>100%</span>
+          <div></div>
+        </div>
+
+        <div class="course-item__text">
+          <h3>History of the Earth</h3>
+          <p>Teacher : Mr.Jason Bourne</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="dashboard__card ">
-    3
   </div>
 
-  <div class="dashboard__card ">
-    4
-  </div>
-
-  <div class="dashboard__card ">
-    5
-  </div>
 </div>

@@ -38,10 +38,3 @@ body {
   height: 0;
   overflow: hidden;
 }
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
