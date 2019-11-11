@@ -1,44 +1,49 @@
-<mat-drawer-container class="main-container">
-  <mat-drawer mode="side" [(opened)]="sideNavOpen" class="main-container__aside">
-    <div class="main-container__user user">
-      <img src="../../assets/avatar.png" alt="">
+<section class="main">
+  <div class="main__settings" [class.main__settings--close]="asideSettingsClose"
+    [class.main__settings--small]="asideMini || isMobileDevice">
+    <mat-slide-toggle *ngIf="!isMobileDevice && !asideMini" [(ngModel)]="asideFixed" value="asideFixed">Fixed
+    </mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="asideMini" value="asideMini">Mini</mat-slide-toggle>
+    <div class="arrow" (click)="toggleSettings()">
+      <mat-icon>play_arrow</mat-icon>
+    </div>
+  </div>
 
-      <h3>Alex Shaw</h3>
+  <aside class="main__aside aside" [class.main__aside--close]="asideClose && !asideFixed && !asideMini"
+    [class.aside--mini]="asideMini">
+    <div class="aside__user">
+      <div class="aside__avatar ">
+        <img src="../../assets/avatar.png" alt="">
+      </div>
 
-      <p>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">room</mat-icon>
+      <h3 class="aside__name">
+        Alex Shaw
+      </h3>
+
+      <p class="aside__location">
         Ho Chi Minh City, Vietnam
       </p>
 
-      <span>Student</span>
+      <span class="aside__status">
+        student
+      </span>
     </div>
 
-    <mat-list class="main-container__list">
-      <mat-list-item class="main-container__link " *ngFor="let link of navLinks" [routerLink]="['', link.path]"
-        routerLinkActive="main-container__link--active" (click)="sideNavToggle()">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">{{link.icon}}</mat-icon>
-        <span>{{link.label}}</span>
-      </mat-list-item>
-    </mat-list>
+    <ul class="aside__list">
+      <li class="aside__li" *ngFor="let li of navLinks" [routerLink]="['/', li.path]"
+        routerLinkActive="aside__li--active" (click)="sideNavToggle($event, true)">
+        <mat-icon>{{li.icon}}</mat-icon>
+        <span>{{li.label}}</span>
+      </li>
+    </ul>
+  </aside>
 
-    <div class="main-container__footer">
-      <mat-icon>power_settings_new</mat-icon>
-      <mat-icon>power_settings_new</mat-icon>
+  <div class="main__container" (click)="sideNavToggle($event, true)">
+    <div class="main__tollbar">
+      <mat-icon (click)="sideNavToggle($event)" mat-button *ngIf="!asideFixed && !asideMini">menu</mat-icon>
     </div>
-  </mat-drawer>
-  <mat-drawer-content>
-    <mat-toolbar class="main-container__toolbar">
-      <mat-toolbar-row>
-        <button mat-icon-button (click)="sideNavToggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <h1>Dashboard</h1>
-        <span class="menu-spacer"></span>
-      </mat-toolbar-row>
-    </mat-toolbar>
 
-    <div class="main-container__content">
-      <router-outlet></router-outlet>
+    <div class="main__content">
     </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </div>
+</section>

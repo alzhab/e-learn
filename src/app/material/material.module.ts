@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
   MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatTabsModule,
-  MatSidenavModule, MatListModule
+  MatSidenavModule, MatListModule, MatGridListModule, MatSlideToggleModule
 } from '@angular/material';
 
 const MaterialTheme = [
@@ -18,7 +18,9 @@ const MaterialTheme = [
   MatProgressSpinnerModule,
   MatTabsModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatGridListModule,
+  MatSlideToggleModule
 ]
 
 @NgModule({

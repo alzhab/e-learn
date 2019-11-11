@@ -25,7 +25,10 @@ export class AuthService {
       p: 'I don’t know how you got to this page, since there are no direct links to it. Do not play with url'
     }
   }
+
   constructor(private http: HttpClient) { }
+
+
 
   getcardTextOption(role: string) {
     return { ...this.cardTextOptions[role] }
