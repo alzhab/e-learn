@@ -5,7 +5,7 @@ import {
   MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatTabsModule,
   MatSidenavModule, MatListModule, MatGridListModule, MatSlideToggleModule
 } from '@angular/material';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 const MaterialTheme = [
   MatButtonModule,
   MatCardModule,
@@ -20,7 +20,8 @@ const MaterialTheme = [
   MatSidenavModule,
   MatListModule,
   MatGridListModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  ScrollingModule
 ]
 
 @NgModule({

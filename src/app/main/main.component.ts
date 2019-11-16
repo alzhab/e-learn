@@ -19,11 +19,6 @@ export class MainComponent implements OnInit {
       label: 'Dashboard'
     },
     {
-      path: 'calendar',
-      icon: 'calendar_today',
-      label: 'Calendar'
-    },
-    {
       path: 'announcement',
       icon: 'announcementy',
       label: 'Announcement'

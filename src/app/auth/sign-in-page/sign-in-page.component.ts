@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../share/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,7 +13,7 @@ export class SignInPageComponent implements OnInit {
   public form: FormGroup
   public submitted: boolean = false
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -29,10 +30,9 @@ export class SignInPageComponent implements OnInit {
     const user = {
       email: this.form.get('email').value,
       password: this.form.get('password').value,
-      role: this.authService.getActiveRole()
+      // role: this.authService.getActiveRole()
     }
 
-    console.log(user);
-
+    this.router.navigate([''])
   }
 }

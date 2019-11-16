@@ -1,19 +1,24 @@
 <div class="dashboard">
   <div class="dashboard__card dashboard__card--long card">
-    <div class="card__header">
+    <div class="card__header card__header--scroll">
       <div class="card__heading">
         <h3>Announcemnent</h3>
         <p>From your Principal or Teachers</p>
       </div>
 
       <div class="card__filter">
-        <p>Principal</p>
-        <p>Teacher</p>
+        <p (click)="changeFilter('admin')" [class.filter--active]="announcementType == 'admin'">
+          <span>Admin</span>
+        </p>
+        <p (click)="changeFilter('teacher')" [class.filter--active]="announcementType == 'teacher'">
+          <span>Teacher</span>
+        </p>
       </div>
     </div>
 
     <div class="card__list">
-      <div class="card__item announcement-item" *ngFor="let ann of list">
+      <div class="card__item announcement-item" [class.announcement-item--teacher]="ann.authorType == 'teacher'"
+        *ngFor="let ann of announcements | announcementsFilter: announcementType; let idx = index" [@message]>
         <div class="announcement-item__view">
           <span>{{ann.view}}</span>
           <mat-icon>remove_red_eye</mat-icon>
@@ -29,8 +34,9 @@
     </div>
   </div>
 
-  <div class="dashboard__card card">
-
+  <div class="dashboard__card card calendare">
+    <app-selector></app-selector>
+    <app-calendar></app-calendar>
   </div>
 
   <div class="dashboard__card card card--primary">
@@ -44,39 +50,16 @@
     </div>
 
     <div class="card__list">
-      <div class="message-item message-item--active">
+      <div class="message-item" [class.message-item--active]="message.notReaded" *ngFor="let message of messages"
+        [@message]>
         <div class="message-item__avatar">
-          <img src="../../../../assets/avatar.png" alt="">
+          <img [src]="'../../../../assets/'+message.user.avatar" alt="">
         </div>
 
         <div class="message-item__text">
-          <h3>Jason Bourne</h3>
-          <p>Hey dude ! What’s the plan ?</p>
-          <span>2 hours ago</span>
-        </div>
-      </div>
-
-      <div class="message-item">
-        <div class="message-item__avatar">
-          <img src="../../../../assets/avatar.png" alt="">
-        </div>
-
-        <div class="message-item__text">
-          <h3>Jason Bourne</h3>
-          <p>Hey dude ! What’s the plan ?</p>
-          <span>2 hours ago</span>
-        </div>
-      </div>
-
-      <div class="message-item">
-        <div class="message-item__avatar">
-          <img src="../../../../assets/avatar.png" alt="">
-        </div>
-
-        <div class="message-item__text">
-          <h3>Jason Bourne</h3>
-          <p>Hey dude ! What’s the plan ?</p>
-          <span>2 hours ago</span>
+          <h3>{{message.user.name}}</h3>
+          <p>{{message.text}}</p>
+          <span>{{message.date}}</span>
         </div>
       </div>
     </div>
@@ -93,15 +76,15 @@
     </div>
 
     <div class="card__list">
-      <div class="course-item">
+      <div class="course-item" [@message] *ngFor="let course of courses">
         <div class="course-item__plan course-item__plan--full">
-          <span>100%</span>
-          <div></div>
+          <span>{{course.progress}}%</span>
+          <div [courseProgres]="course.progress"></div>
         </div>
 
         <div class="course-item__text">
-          <h3>History of the Earth</h3>
-          <p>Teacher : Mr.Jason Bourne</p>
+          <h3>{{course.title}}</h3>
+          <p>Teacher : {{course.teacher.name}}</p>
         </div>
       </div>
     </div>

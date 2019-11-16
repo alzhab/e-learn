@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Date: {{data.date | date}}</h1>
+
+<p *ngIf="!events.length; else eventsExist" style="margin: 0;">No event</p>
+<ng-template #eventsExist>
+  <p>Event count: {{events.length}}</p>
+</ng-template>
+
+<mat-form-field>
+  <input matInput [(ngModel)]="event" type="text" #input cdkFocusInitial>
+</mat-form-field>
+<button mat-stroked-button color="primary" (click)="createEvent()" [disabled]="event.length < 5">Create event</button>
+
+<div mat-dialog-content>
+  <mat-selection-list [(ngModel)]="eventsSelected" (ngModelChange)="onGroupsChange($event)">
+    <mat-list-option *ngFor="let e of events" [value]="e"> {{e}} </mat-list-option>
+  </mat-selection-list>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Dosviduli</button>
+  <button mat-button [mat-dialog-close]="eventsToSend">Save</button>
+</div>

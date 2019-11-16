@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiKey: "AIzaSyDgjotjIAM4y6TIjxFEIEA5dWTwwNbL2t8",
-  fbDBUrl: "https://e-learn-c312a.firebaseio.com"
+  api: 'http://localhost:3000/api'
 };
 
 /*

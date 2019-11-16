@@ -8,7 +8,12 @@ import { ForgotPasswordPageComponent } from './forgot-password-page/forgot-passw
 import { AuthShareModule } from './share/share.module';
 
 @NgModule({
-  declarations: [SignInPageComponent, AuthComponent, ForgotPasswordPageComponent],
+  declarations: [
+    SignInPageComponent,
+    AuthComponent,
+    ForgotPasswordPageComponent,
+    
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,

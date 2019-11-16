@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 export type Role = 'student' | 'teacher' | 'admin'
 
@@ -28,8 +29,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-
-
   getcardTextOption(role: string) {
     return { ...this.cardTextOptions[role] }
   }
@@ -41,5 +40,4 @@ export class AuthService {
   setActiveRole(role: Role) {
     this.activeRole = role
   }
-
 }

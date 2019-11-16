@@ -1,0 +1,43 @@
+.calendare {
+  width: 100%;
+  text-align: center;
+
+  th {
+    padding-bottom: 17px;
+  }
+
+  th {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  td {
+    padding: 9px 0;
+    cursor: pointer;
+
+    &.disabled {
+      opacity: 0;
+    }
+
+    span {
+      display: inline-block;
+      text-align: center;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-weight: 500;
+      border-radius: 50%;
+      box-sizing: border-box;
+
+      &.active {
+        background-color: #03a9f4;
+        color: #fff;
+      }
+
+      &.selected {
+        border: 1px solid #d6d6d6;
+      }
+    }
+  }
+}

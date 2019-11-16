@@ -56,11 +56,15 @@
     box-sizing: border-box;
     position: relative;
     flex-wrap: wrap;
+
+    &--scroll {
+      overflow-y: scroll;
+    }
   }
 
   &__button {
     position: absolute;
-    z-index: 5;
+    z-index: 6;
     width: 35px;
     height: 35px;
     display: flex;
@@ -110,14 +114,39 @@
     align-items: center;
 
     p {
+      cursor: pointer;
+      position: relative;
       padding: 4px 7px;
-      border-left: 3px solid #03a9f4;
       color: #727272;
       font-size: 1rem;
       margin-left: 26px;
 
-      &:nth-child(2) {
-        border-left: 3px solid #ffc107;
+      span {
+        position: relative;
+        z-index: 2;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: calc(100% - 3px);
+        background: #03a9f4;
+        transition: 0.3s ease-out;
+      }
+
+      &:nth-child(2):after {
+        background: #ffc107;
+      }
+    }
+
+    p.filter--active {
+      color: #fff;
+
+      &:after {
+        right: 0;
       }
     }
   }
@@ -189,7 +218,7 @@
   border-left: 4px solid #03a9f4;
 
   &--teacher {
-    border-right: 4px solid #ffc107;
+    border-left: 4px solid #ffc107;
   }
 
   &__view {
@@ -256,6 +285,7 @@
   padding: 0px 14px;
   box-sizing: border-box;
   position: relative;
+  cursor: pointer;
 
   &--active:after {
     content: '';
@@ -316,6 +346,7 @@
   position: relative;
 
   &__plan {
+    height: 55px;
     margin-right: 14px;
     display: flex;
     flex-direction: column;
